@@ -22,7 +22,10 @@ while char_pressed != 'q':
       print("character d has been pressed")
 
 
+
+
 ##### Part A #######
+
 
 
 class Participant:
@@ -30,10 +33,18 @@ class Participant:
     howManyParticipants = 0
 
     def __init__(self, firstName, lastName):
+        # AI | First Name
         self.firstName = firstName
+
+        # AII | Last Name
         self.lastName = lastName
-        self.howManyParticipants += 1
-        self.participantsNumber = self.howManyParticipants  # TODO: Fix this - trying to declare and set variable that is automatically set to participants number
+
+        # AIII | Variable that counts how many instances of class created
+        Participant.howManyParticipants += 1
+        self.participantsNumber = Participant.howManyParticipants
+
+        # Private Variable for Winnings
+        self.__winnings = 2000
 
     def __str__(self):
         return "Object Info - Participant Name: %s %d , Participant Number:  %f" % (
@@ -42,6 +53,9 @@ class Participant:
     def getFullName(self):
         return '{} {}'.format(self.firstName, self.lastName)
 
+# Testing & Debugging Code
 
+# Creating Participant 1 Class
 p1 = Participant("Jane", "Doe")
-print(p1.getFullName())
+
+print(p1.getFullName(), p1.participantsNumber)

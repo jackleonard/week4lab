@@ -12,10 +12,15 @@ class Participant:
 
         # AIII | Variable that counts how many instances of class created
         Participant.howManyParticipants += 1
+        #AIV Participants Number
         self.participantsNumber = Participant.howManyParticipants
 
-        # Private Variable for Winnings
+        # AV Private Variable for Winnings
         self.__winnings = 2000
+
+        # AVI dictionary containing chars user presses as keys followed by the amount of times the participants has pressed the chars as items. This dict should be private
+
+        self.__charsPressed = {"a":0, "b":0, "c":0, "d":0,} #TODO: Figure out how to keep track of individiual keys pressed
 
     def __str__(self):
         return "Object Info - Participant Name: %s %d , Participant Number:  %f" % (
