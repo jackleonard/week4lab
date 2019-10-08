@@ -8,11 +8,11 @@ Graded Assignment Submission
 
 char_pressed = None
 
+
 while char_pressed != 'q':
   # this will continue to loop until the participant clicks 'q' key
     char_pressed = input("Please enter a character: 'a', 'b', 'c' or 'd' to reveal your winnings. Type 'q' to quit: ")
     if char_pressed == 'a':
-      p1.setWinnings((0,100))
       print("character a has been pressed")
     elif char_pressed == 'b':
       print("character b has been pressed")
@@ -20,8 +20,6 @@ while char_pressed != 'q':
       print("character c has been pressed")
     elif char_pressed == 'd':
       print("character d has been pressed")
-
-
 
 
 ##### Part A #######
@@ -44,7 +42,7 @@ class Participant:
         self.participantsNumber = Participant.howManyParticipants
 
         # AV Private Variable for Winnings
-        self.__winnings = 2000
+        self.__winnings = 2000  #TODO: Access private variable shema
 
         # AVI dictionary containing chars user presses as keys followed by the amount of times the participants has pressed the chars as items. This dict should be private
 
@@ -53,6 +51,7 @@ class Participant:
     def __str__(self):
         return "Object Info - Participant Name: %s %s , Participant Number:  %d" % (self.firstName, self.lastName, self.participantsNumber)
 
+    #Getters & Setters
     def getFullName(self):
         return "%s %s" % ( self.firstName, self.lastName)
 
@@ -60,21 +59,17 @@ class Participant:
         firstName, lastName = new_full_name.split(" ")
         self.firstName = firstName
         self.lastName = lastName
+    #F
+    def getWinnings(self):
+        return self.__winnings
+    #G
+    def setWinnings(self, winnings_loses):
+        #Takes a tutle as input (amount_won,amount_lost)
+        # From this the function should calculate how much money the participant has left over once the winning amount and losing amount has been applied to the participant’s overall winnings.
+        winnings = self.__winnings
+        return ((winnings - winnings_loses[1])+winnings_loses[0])
 
 
 ####### Testing & Debugging Code #######
-
-# Creating instance of class
-p1 = Participant("Jane", "Doe")
-p2 = Participant("John", "Doe")
-
-print(p1.getFullName(), p1.participantsNumber)
-print(p2.getFullName(), p2.participantsNumber)
-print(p1)
-print(p2)
-
-## Testing Getters & Setters
-
-p1.setFullName("Janette Doe")
-print(p1)
+# now stored in testing-qa.py :)
 
