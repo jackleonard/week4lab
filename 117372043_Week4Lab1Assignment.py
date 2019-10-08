@@ -60,16 +60,50 @@ class Participant:
         self.firstName = firstName
         self.lastName = lastName
     #F
-    def getWinnings(self):
+    def getWinnings(self): #TODO not invoked in char press yet
         return self.__winnings
+
     #G
-    def setWinnings(self, winnings_loses):
+    def setWinnings(self, winnings_loses): #TODO not invoked in char press yet
         #Takes a tutle as input (amount_won,amount_lost)
         # From this the function should calculate how much money the participant has left over once the winning amount and losing amount has been applied to the participant’s overall winnings.
         winnings = self.__winnings
         return ((winnings - winnings_loses[1])+winnings_loses[0])
 
 
+    #H - This function returns the character presses made by the participant as a list of tuples (i.e. not a dictionary).
+    def getKeyPressInfo(self): #TODO not invoked in char press yet
+        dictlist = []
+        charsPressed = self.__charsPressed
+        for key, value in charsPressed.items():
+            temp = [key,value]
+            dictlist.append(temp)
+        return dictlist
+
+    def recordKeysPressed(self, char_pressed):
+        #This function is intended to count how many times a participant has clicked the characters a, b, c or d.
+
+
+
 ####### Testing & Debugging Code #######
 # now stored in testing-qa.py :)
+
+####### Testing & Debugging Code #######
+
+# Creating instance of class
+p1 = Participant("Jane", "Doe")
+p2 = Participant("John", "Doe")
+
+print(p1.getFullName(), p1.participantsNumber)
+print(p2.getFullName(), p2.participantsNumber)
+print(p1)
+print(p2)
+
+## Testing Getters & Setters
+
+p1.setFullName("Janette Doe")
+print(p1)
+print(p1.setWinnings((100,50))) #works !!
+
+print(p1.getKeyPressInfo()) # works !!
 
