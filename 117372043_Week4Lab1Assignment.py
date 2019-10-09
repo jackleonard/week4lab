@@ -100,21 +100,29 @@ class Participant:
         return highestValueList
 
         # K - This function returns a list of tuples that hold the character(s) with the highest amount of key presses.
-    def getMinKeyPress(self): #todo: check this !!
+    def getMinKeyPress(self): #todo: not working, check the logic !!
         minvalue = 0
         minvalueList = []
         dictlist2 = self.__charsPressed
-        # find highest values
+        # find min values
+
         for item in dictlist2.items():
+            print(item)
             key = item[0]
             value = item[1]
-            print(key, value)
-            if value < minvalue: #check the logic here 
+            print(f"min test {key} {value}")
+            if value < minvalue: #check the logic here
                 minvalue = value
                 print(f"Min Value: {minvalue}")
                 # find the chars with highest value
                 for k, v in dictlist2.items():
                     if v == minvalue:
+                        minvalueList.append((k, v))
+                        print("Min Value List")
+                        print(minvalueList)
+            if value == minvalue:
+                print("This works !!")
+                for k, v in dictlist2.items():
                         minvalueList.append((k, v))
                         print("Min Value List")
                         print(minvalueList)
