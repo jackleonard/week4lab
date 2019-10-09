@@ -73,7 +73,7 @@ class Participant:
         if char_pressed == "a" or char_pressed == "b" or char_pressed == "c" or char_pressed == "d":
             charDict[char_pressed] =+ 1
             #debug
-            print(charDict)
+            #print(charDict)
         else: #this is actually superflous, I could just use the first statement but I'm leaving it here in case I need a special operation for disalowed keys
             print("Invalid Character")
 
@@ -88,45 +88,40 @@ class Participant:
         for item in dictlist.items():
             key = item[0]
             value = item[1]
-            print(key, value)
+            #print("max test")
+            #print(key, value)
             if value > highestvalue:
                 highestvalue = value
-                print(f"Highest Value: {highestvalue}")
+                #print(f"Highest Value: {highestvalue}")
         # find the chars with highest value
                 for k, v in dictlist.items():
                     if v == highestvalue:
                         highestValueList.append((k, v))
-                        print(highestValueList)
+                        #print(highestValueList)
         return highestValueList
 
         # K - This function returns a list of tuples that hold the character(s) with the highest amount of key presses.
     def getMinKeyPress(self): #todo: not working, check the logic !!
         minvalue = 0
         minvalueList = []
-        dictlist2 = self.__charsPressed
+        dictlist = self.__charsPressed
         # find min values
 
-        for item in dictlist2.items():
-            print(item)
+        for item in dictlist.items():
             key = item[0]
             value = item[1]
-            print(f"min test {key} {value}")
-            if value < minvalue: #check the logic here
+            #print("min test")
+            #print(key, value)
+            if value < minvalue:
                 minvalue = value
-                print(f"Min Value: {minvalue}")
-                # find the chars with highest value
-                for k, v in dictlist2.items():
-                    if v == minvalue:
-                        minvalueList.append((k, v))
-                        print("Min Value List")
-                        print(minvalueList)
-            if value == minvalue:
-                print("This works !!")
-                for k, v in dictlist2.items():
-                        minvalueList.append((k, v))
-                        print("Min Value List")
-                        print(minvalueList)
-            return minvalueList
+                #print(f"Min Value: {minvalue}")
+        # find the chars with highest value
+        for k, v in dictlist.items():
+            if v == minvalue:
+                minvalueList.append((k, v))
+
+        return minvalueList
+
 
 
 
@@ -155,19 +150,32 @@ while char_pressed != 'q':
 # this will continue to loop until the participant clicks 'q' key
     char_pressed = input("Please enter a character: 'a', 'b', 'c' or 'd' to reveal your winnings. Type 'q' to quit: ")
     # This is pretty ugly code, I code wrap some of this in a function and just recall
+
+    ''' reusable functin  
+    def keyPressedOperation(): 
+        p1.getWinnings()
+        p1.getKeyPressInfo()
+        p1.recordKeysPressed(char_pressed)
+        g = p1.getKeyPressInfo()
+        p1.getMaxKeyPress()
+        p1.getMinKeyPress()
+    '''
+
     if char_pressed == 'a':
+        # keyPressedOperation()
         #class functions
         p1.getWinnings()
         p1.setWinnings((0,0))
         p1.getKeyPressInfo()
         p1.recordKeysPressed(char_pressed)
         g = p1.getKeyPressInfo()
-        print(g)
+        #print(g)
         p1.getMaxKeyPress()
         p1.getMinKeyPress()
         #debug
         print(f"character a has been pressed. Winnings: {p1.getWinnings()}")
     elif char_pressed == 'b':
+        # keyPressedOperation()
         #class functions
         p1.getWinnings()
         p1.setWinnings((0,0))
@@ -177,8 +185,9 @@ while char_pressed != 'q':
         p1.getMaxKeyPress()
         p1.getMinKeyPress()
         #debug
-        print(f"character a has been pressed. Winnings: {p1.getWinnings()}")
+        print(f"character b has been pressed. Winnings: {p1.getWinnings()}")
     elif char_pressed == 'c':
+        # keyPressedOperation()
         #class functions
         p1.getWinnings()
         p1.setWinnings((100,50))
@@ -188,8 +197,9 @@ while char_pressed != 'q':
         p1.getMaxKeyPress()
         p1.getMinKeyPress()
         #debug
-        print(f"character a has been pressed. Winnings: {p1.getWinnings()}")
+        print(f"character c has been pressed. Winnings: {p1.getWinnings()}")
     elif char_pressed == 'd':
+        # keyPressedOperation()
         # class functions
         p1.getWinnings()
         p1.setWinnings((0,0))
@@ -199,9 +209,10 @@ while char_pressed != 'q':
         p1.getMaxKeyPress()
         p1.getMinKeyPress()
         # debug
-        print(f"character a has been pressed. Winnings: {p1.getWinnings()}")
+        print(f"character d has been pressed. Winnings: {p1.getWinnings()}")
     else:
         #class functions
+        # keyPressedOperation()
         p1.getKeyPressInfo()
         g = p1.getKeyPressInfo()
         p1.recordKeysPressed(char_pressed)
