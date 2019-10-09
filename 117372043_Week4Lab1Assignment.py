@@ -109,7 +109,7 @@ class Participant:
             key = item[0]
             value = item[1]
             print(key, value)
-            if value < minvalue:
+            if value < minvalue: #check the logic here 
                 minvalue = value
                 print(f"Min Value: {minvalue}")
                 # find the chars with highest value
