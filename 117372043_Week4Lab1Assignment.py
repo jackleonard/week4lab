@@ -47,19 +47,23 @@ class Participant:
         self.firstName = firstName
         self.lastName = lastName
     #F
-    def getWinnings(self): #TODO not invoked in char press yet
+    def getWinnings(self):
         return self.__winnings
 
     #G
-    def setWinnings(self, winnings_loses): #TODO not invoked in char press yet
+    def setWinnings(self, winnings_loses): #TODO this isn't changing/setting the winnings section
         #Takes a tutle as input (amount_won,amount_lost)
         # From this the function should calculate how much money the participant has left over once the winning amount and losing amount has been applied to the participant’s overall winnings.
         winnings = self.__winnings
-        return ((winnings - winnings_loses[1])+winnings_loses[0])
+        newWinnings = (winnings - winnings_loses[1])+winnings_loses[0]
+        self.__winnings = newWinnings
+
+    # L - Property to call getters & setters for any key pressed
+
 
 
     #H - This function returns the character presses made by the participant as a list of tuples (i.e. not a dictionary).
-    def getKeyPressInfo(self): #TODO not invoked in char press yet
+    def getKeyPressInfo(self):
         dictlist = []
         charsPressed = self.__charsPressed
         for key, value in charsPressed.items():
@@ -122,6 +126,13 @@ class Participant:
 
         return minvalueList
 
+    #L - PROPERTIES
+
+    fullName = property(getFullName, setFullName)
+    winnings = property(getWinnings, setWinnings)
+
+
+
 
 
 
@@ -143,7 +154,6 @@ class Participant:
 
 
 p1 = Participant("Jane", "Doe")
-p1.setWinnings((100,50))
 
 char_pressed = None
 while char_pressed != 'q':
@@ -164,8 +174,7 @@ while char_pressed != 'q':
     if char_pressed == 'a':
         # keyPressedOperation()
         #class functions
-        p1.getWinnings()
-        p1.setWinnings((0,0))
+        p1.winnings = (100, 200)
         p1.getKeyPressInfo()
         p1.recordKeysPressed(char_pressed)
         g = p1.getKeyPressInfo()
@@ -177,8 +186,7 @@ while char_pressed != 'q':
     elif char_pressed == 'b':
         # keyPressedOperation()
         #class functions
-        p1.getWinnings()
-        p1.setWinnings((0,0))
+        p1.winnings = (50, 40)
         p1.getKeyPressInfo()
         g = p1.getKeyPressInfo()
         p1.recordKeysPressed(char_pressed)
@@ -189,8 +197,7 @@ while char_pressed != 'q':
     elif char_pressed == 'c':
         # keyPressedOperation()
         #class functions
-        p1.getWinnings()
-        p1.setWinnings((100,50))
+        p1.winnings = (100, 50)
         p1.getKeyPressInfo()
         g = p1.getKeyPressInfo()
         p1.recordKeysPressed(char_pressed)
@@ -201,8 +208,7 @@ while char_pressed != 'q':
     elif char_pressed == 'd':
         # keyPressedOperation()
         # class functions
-        p1.getWinnings()
-        p1.setWinnings((0,0))
+        p1.winnings = (80, 20)
         p1.getKeyPressInfo()
         g = p1.getKeyPressInfo()
         p1.recordKeysPressed(char_pressed)
@@ -232,17 +238,16 @@ while char_pressed != 'q':
 
 # Creating instance of class
 p1 = Participant("Jane", "Doe")
-p2 = Participant("John", "Doe")
+
 
 print(p1.getFullName(), p1.participantsNumber)
-print(p2.getFullName(), p2.participantsNumber)
-print(p1)
-print(p2)
+
 
 ## Testing Getters & Setters
 
-p1.setFullName("Janette Doe")
-print(p1)
+p1.fullName = "Janette Doe"
+print(p1.fullName)
+
 print(p1.setWinnings((100,50))) #works !!
 
 print(p1.getKeyPressInfo()) # works !!
