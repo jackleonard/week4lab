@@ -8,9 +8,9 @@ Graded Assignment Submission
 
 
 
-
-##### Part A #######
-
+###############################
+##### Defining Class:   #######
+###############################
 
 class Participant:
     # class variables
@@ -135,23 +135,9 @@ class Participant:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+###############################
+##### Main Code:   #######
+###############################
 
 p1 = Participant("Jane", "Doe")
 
@@ -163,10 +149,8 @@ while char_pressed != 'q':
 
     ''' reusable functin  
     def keyPressedOperation(): 
-        p1.getWinnings()
         p1.getKeyPressInfo()
         p1.recordKeysPressed(char_pressed)
-        g = p1.getKeyPressInfo()
         p1.getMaxKeyPress()
         p1.getMinKeyPress()
     '''
@@ -229,26 +213,18 @@ while char_pressed != 'q':
 
 
 
-
-
-####### Testing & Debugging Code #######
-# now stored in testing-qa.py :)
-
-####### Testing & Debugging Code #######
+###################### Testing: Getters, Setters & Properties  ##########
 
 # Creating instance of class
 p1 = Participant("Jane", "Doe")
 
-
-print(p1.getFullName(), p1.participantsNumber)
-
-
 ## Testing Getters & Setters
 
+#testing fullname Property
 p1.fullName = "Janette Doe"
 print(p1.fullName)
 
+#testing misc
 print(p1.setWinnings((100,50))) #works !!
-
 print(p1.getKeyPressInfo()) # works !!
 
